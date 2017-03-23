@@ -20,9 +20,10 @@ public class HomeController implements Serializable {
     
     @PostConstruct
     public void init() throws Exception {
-    	Produto produto = new Produto();
-    	produto.setCodigo("123");    	
+    	/*Produto produto = new Produto();
+    	produto.setCodigo("123");
     	produtoDao.inserirProduto(produto);
+    	*/
     	
     	produtoDao.recuperarTodosProdutos();
     } 
@@ -33,8 +34,6 @@ public class HomeController implements Serializable {
 
 	public void setTexto(String texto) {
 		this.texto = texto;
-	}
-	
-	
+	}	
 
 }

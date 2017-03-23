@@ -20,6 +20,17 @@ public class Produto implements Serializable {
 	
 	@Column
 	private String codigo;
+	
+	@Column
+	private String descricao;
+	
+	public Produto() {		
+	}
+	
+	public Produto(String codigoEntrada, String descricaoEntrada) {
+		this.codigo = codigoEntrada;
+		this.descricao = descricaoEntrada;
+	}	
 
 	public Long getId() {
 		return id;
@@ -35,6 +46,14 @@ public class Produto implements Serializable {
 
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 }

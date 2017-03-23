@@ -11,8 +11,8 @@ import br.com.mercearia.model.Produto;
 
 public class ProdutoDao {
 	
-	private EntityManagerFactory factory = Persistence.createEntityManagerFactory("unit_app");
-	
+	// Gerenciamento e acesso ao banco de dados
+	private EntityManagerFactory factory = Persistence.createEntityManagerFactory("unit_app");	
 	private EntityManager em = factory.createEntityManager();    
 	
 	public Produto inserirProduto(Produto produto) throws Exception {
@@ -26,8 +26,6 @@ public class ProdutoDao {
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 		    throw new Exception(e);
-		} finally {			
-			/*em.close();*/
 		}
   }
 	
@@ -41,8 +39,6 @@ public class ProdutoDao {
 			return produtos;
 		} catch (Exception e) {			
 		    throw new Exception(e);
-		} finally {			
-			/*em.close();*/
 		}
   }
 	
