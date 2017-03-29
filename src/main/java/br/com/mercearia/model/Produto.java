@@ -24,12 +24,45 @@ public class Produto implements Serializable {
 	@Column
 	private String descricao;
 	
+	@Column
+	private String marca;
+	
+	@Column
+	private String fornecedor;
+	
+	@Column
+	private String tipo;
+	
+	@Column
+	private int quantidade;
+	
+	@Column
+	private float valorCompra;
+	
+	@Column
+	private float valorVenda;
+	
+	@Column
+	private String dataFab;
+	
+	@Column 
+	private String dataVen;
+	
+	
 	public Produto() {		
 	}
 	
-	public Produto(String codigoEntrada, String descricaoEntrada) {
+	public Produto(String codigoEntrada, String descricaoEntrada, String marcaEntrada, String fornecedorEntrada, String tipoEntrada, int quantidadeEntrada, float valorCompraEntrada, float valorVendaEntrada, String dataFabEntrada, String dataVenEntrada) {
 		this.codigo = codigoEntrada;
 		this.descricao = descricaoEntrada;
+		this.marca = marcaEntrada;
+		this.fornecedor = fornecedorEntrada;
+		this.tipo = tipoEntrada;
+		this.quantidade = quantidadeEntrada;
+		this.valorCompra = valorCompraEntrada; 
+		this.valorVenda = valorVendaEntrada; 
+		this.dataFab = dataFabEntrada; 
+		this.dataVen = dataVenEntrada;
 	}	
 
 	public Long getId() {
@@ -54,6 +87,70 @@ public class Produto implements Serializable {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+	
+	public String getForncedor(){
+		return fornecedor;
+	}
+
+	public void setFornecedor(String fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+	
+	public float getValorCompra() {
+		return valorCompra;
+	}
+
+	public void setValorCompra(float valorCompra) {
+		this.valorCompra = valorCompra;
+	}
+	
+	public float getValorVenda() {
+		return valorVenda;
+	}
+
+	public void setValorVenda(float valorVenda) {
+		this.valorVenda = valorVenda;
+	}
+	
+	public String getDataFab() {
+		return dataFab;
+	}
+
+	public void setDataFab(String dataFab) {
+		this.dataFab = dataFab;
+	}
+	
+	public String getDataVen() {
+		return dataVen;
+	}
+
+	public void setDataVen(String dataVen) {
+		this.dataVen = dataVen;
 	}
 
 }
