@@ -12,7 +12,7 @@
  
 	<ui:define name="content">
     
-	    <h1> Cadstro de produto </h1>
+	    <h1> Cadstro de fornecedor </h1>
 	    
 	    <h:panelGroup id="painel">    
 	    	<h:form>
@@ -21,21 +21,12 @@
 	                <label>Codigo</label>
 	                <div>
 	                    <div class="input-group">
-	                        <h:inputText id="form_produto_codigo" size="100" value="#{produtoController.produto.codigo}"/>
+	                        <h:inputText size="100" value="#{fornecedoreController.fornecedor.codigo}"/>
 	                    </div>
 	                </div>
 	            </div>    
-	            
-	            <div>
-	                <label>Descricao</label>
-	                <div>
-	                    <div class="input-group">
-	                        <h:inputText id="form_produto_nome" size="100" value="#{produtoController.produto.descricao}"/>
-	                    </div>
-	                </div>
-	            </div>
 	                        
-	            <h:commandLink action="#{produtoController.salvarProduto()}" value="Salvar"> </h:commandLink>  
+	            <h:commandLink action="#{fornecedorController.salvarFornecedor()}" value="Salvar"> </h:commandLink>  
             
             </h:form>
           </h:panelGroup> 

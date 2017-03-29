@@ -1,12 +1,14 @@
 package br.com.mercearia.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -57,10 +59,13 @@ public class Fornecedor implements Serializable {
 	@Column
 	private String email;
 	
+	@OneToMany(mappedBy="fornecedor")
+	private List<Produto> produtos;
+	
 	public Fornecedor() {		
 	}
 	
-	public Fornecedor(String codigoEntrada, String nomeEntrada, String cnpjEntrada, String inscEntrada, String telefoneEntrada, String faxEntrada, String cepEntrada, String enderecoEntrada, String cidadeEntrada, String ufEntrada, int numeroEntrada, String bairroEntrada, String emailEntrada) {
+	public Fornecedor(String codigoEntrada, String nomeEntrada, String cnpjEntrada, String inscEntrada, String telefoneEntrada, String faxEntrada, String cepEntrada, String enderecoEntrada, String cidadeEntrada, String ufEntrada, int numeroEntrada, String bairroEntrada, String emailEntrada, List<Produto> produtos) {
 		this.codigo = codigoEntrada;
 		this.nome = nomeEntrada;
 		this.cnpj = cnpjEntrada;
@@ -74,6 +79,7 @@ public class Fornecedor implements Serializable {
 		this.numero = numeroEntrada;
 		this.bairro = bairroEntrada;
 		this.email = emailEntrada;
+		this.produtos = produtos;
 	}	
 
 	public Long getId() {
@@ -186,6 +192,14 @@ public class Fornecedor implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
 	}
 
 }

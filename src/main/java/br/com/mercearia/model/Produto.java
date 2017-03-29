@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,9 +30,6 @@ public class Produto implements Serializable {
 	private String marca;
 	
 	@Column
-	private String fornecedor;
-	
-	@Column
 	private String tipo;
 	
 	@Column
@@ -48,21 +47,24 @@ public class Produto implements Serializable {
 	@Column 
 	private String dataVen;
 	
+	@ManyToOne
+	@JoinColumn(name = "fornecedor")
+	private Fornecedor fornecedor;
 	
 	public Produto() {		
 	}
 	
-	public Produto(String codigoEntrada, String descricaoEntrada, String marcaEntrada, String fornecedorEntrada, String tipoEntrada, int quantidadeEntrada, float valorCompraEntrada, float valorVendaEntrada, String dataFabEntrada, String dataVenEntrada) {
+	public Produto(String codigoEntrada, String descricaoEntrada, String marcaEntrada, String tipoEntrada, int quantidadeEntrada, float valorCompraEntrada, float valorVendaEntrada, String dataFabEntrada, String dataVenEntrada, Fornecedor fornecedor) {
 		this.codigo = codigoEntrada;
 		this.descricao = descricaoEntrada;
 		this.marca = marcaEntrada;
-		this.fornecedor = fornecedorEntrada;
 		this.tipo = tipoEntrada;
 		this.quantidade = quantidadeEntrada;
 		this.valorCompra = valorCompraEntrada; 
 		this.valorVenda = valorVendaEntrada; 
 		this.dataFab = dataFabEntrada; 
 		this.dataVen = dataVenEntrada;
+		this.fornecedor = fornecedor;
 	}	
 
 	public Long getId() {
@@ -95,14 +97,6 @@ public class Produto implements Serializable {
 
 	public void setMarca(String marca) {
 		this.marca = marca;
-	}
-	
-	public String getForncedor(){
-		return fornecedor;
-	}
-
-	public void setFornecedor(String fornecedor) {
-		this.fornecedor = fornecedor;
 	}
 	
 	public String getTipo() {
@@ -153,5 +147,13 @@ public class Produto implements Serializable {
 		this.dataVen = dataVen;
 	}
 
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+	
 }
 	
