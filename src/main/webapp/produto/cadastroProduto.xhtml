@@ -34,6 +34,16 @@
 	                    </div>
 	                </div>
 	            </div>
+	            
+	            <h:selectOneMenu value="#{produtoController.produto.fornecedor}" converter="omnifaces.SelectItemsConverter">
+	                 <f:selectItem
+	                         itemLabel="Escolha"
+	                         itemValue="#{null}" />
+	                 <f:selectItems  var="fornecedor"
+	                                 value="#{produtoController.fornecedoresDisponiveis()}"
+	                                 itemLabel="#{fornecedor.nome}"
+	                                 itemValue="#{fornecedor}"/>
+	             </h:selectOneMenu>
 	                        
 	            <h:commandLink action="#{produtoController.salvarProduto()}" value="Salvar"> </h:commandLink>  
             

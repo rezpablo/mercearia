@@ -29,17 +29,14 @@ public class FornecedorDao {
 		}
   }
 	
-	public List<Fornecedor> recuperarTodosFornecedores() throws Exception {		
+	public List<Fornecedor> recuperarTodosFornecedores() {
+		List<Fornecedor> fornecedor = new ArrayList<>();	
 		try {
-			List<Fornecedor> fornecedor = new ArrayList<>();
-			em.getTransaction().begin();
-			
-			fornecedor = em.createQuery("Select p from " + Fornecedor.class.getSimpleName() + " p").getResultList();
-			
-			return fornecedor;
+			fornecedor = em.createQuery("Select p from " + Fornecedor.class.getSimpleName() + " p").getResultList();			
 		} catch (Exception e) {			
-		    throw new Exception(e);
+		   System.out.println(e.getMessage());		   
 		}
+		return fornecedor;
   }
 	
 	
